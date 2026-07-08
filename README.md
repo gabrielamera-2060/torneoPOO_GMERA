@@ -5,5 +5,5 @@ mi primera clase
 07-07-2026
 METODOS, COMPORTAMIENTOS O FUNCIONES
 
-07-07-2026
-SE CORRIGIO EL CODIGO
+08-07-2026
+Se realizaron constructores en las clases jugador partido y equipo
