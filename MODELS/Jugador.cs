@@ -16,16 +16,21 @@ namespace torneoPOO_GMERA.MODELS
         //Constructor
         public Jugador(string nombre, int edad, int numero, string posicion)
         {
+            if (edad < 18)
+            {
+                throw new Exception("El jugador debe ser mayor de edad.");
+            }
+
+            if (numero <= 0 || numero >= 100)
+            {
+                throw new Exception("El número de camiseta debe estar entre 1 y 99.");
+            }
+
             this.Nombre = nombre;
             this.Edad = edad;
             this.Numero = numero;
             this.Posicion = posicion;
         }
-
-
-
-
-
 
         //METODOS, COMPORTAMIENTOS O FUNCIONES
         public void Presentar()
@@ -56,6 +61,5 @@ namespace torneoPOO_GMERA.MODELS
                 return false;
             }
         }
-
     }
 }

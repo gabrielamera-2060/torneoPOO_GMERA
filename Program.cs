@@ -1,8 +1,8 @@
 ﻿using torneoPOO_GMERA.MODELS;
 
-Jugador objJugador1 = new Jugador("Piero Hincapié", 24, 4, "Defensa");
+Jugador objJugador1 = new Jugador("Piero Hincapié", 24, 3, "Defensa");
 
-Jugador objJugador2 = new Jugador("Enner Valencia", 32, 700, "Delantero");
+Jugador objJugador2 = new Jugador("Enner Valencia", 32, 13, "Delantero");
 
 Equipo objEquipo1 = new Equipo("Emelec", "Guayaquil");
 
@@ -23,3 +23,8 @@ Equipo objEquipo2 = new Equipo("Barcelona", "Guayaquil");
 
 objEquipo2.AgregarJugador(objJugador3);
 objEquipo2.AgregarJugador(objJugador4);
+
+objEquipo2.ListarPlantilla();
+
+Partido objPartido1 = new Partido(objEquipo1, objEquipo2, DateTime.Now, "Guayaquil");
+objPartido1.MostrarResumen();
