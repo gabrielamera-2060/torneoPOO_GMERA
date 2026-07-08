@@ -10,7 +10,6 @@ objEquipo1.AgregarJugador(objJugador1);
 objEquipo1.AgregarJugador(objJugador2);
 
 
-
 objEquipo1.ListarPlantilla();
 
 Jugador objJugador3 = new Jugador("Moiséc Caicedo", 23, 5, "Medio Campo");
