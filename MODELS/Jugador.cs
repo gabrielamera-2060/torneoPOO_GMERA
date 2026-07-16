@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace torneoPOO_GMERA.MODELS
@@ -7,14 +8,25 @@ namespace torneoPOO_GMERA.MODELS
     public class Jugador
     {
         //ATRIBUTOS O CARACTERISTICAS
-        public string Nombre { get; set; }
-        public int Edad { get; set; }
-        public int Numero { get; set; }
-        public string Posicion { get; set; }
+        private string nombre;
+        private int edad;
+        private int numero;
+        private string posicion;
+        private string nacionalidad;
+        private double estatura;
+        private double peso;
+
+        public string Nombre { get => nombre; set => nombre = value; }
+        public int Edad { get => edad; set => edad = value; }
+        public int Numero { get => numero; set => numero = value; }
+        public string Posicion { get => posicion; set => posicion = value; }
+        public string Nacionalidad { get => nacionalidad; set => nacionalidad = value; }
+        public double Estatura { get => estatura; set => estatura = value; }
+        public double Peso { get => peso; set => peso = value; }
 
 
         //Constructor
-        public Jugador(string nombre, int edad, int numero, string posicion)
+        public Jugador(string nombre, int edad, int numero, string posicion, string nacionalidad, double estatura, double peso)
         {
             if (edad < 18)
             {
@@ -23,13 +35,31 @@ namespace torneoPOO_GMERA.MODELS
 
             if (numero <= 0 || numero >= 100)
             {
-                throw new Exception("El número de camiseta debe estar entre 1 y 99.");
+                throw new Exception("El número de camiseta no es valido.");
+            }
+
+            if (string.IsNullOrWhiteSpace(nacionalidad))
+            {
+                throw new Exception("La nacionalidad es obligatoria.");
+            }
+
+            if (estatura <= 0)
+            {
+                throw new Exception("La estatura debe ser mayor que cero.");
+            }
+
+            if (peso <= 0)
+            {
+                throw new Exception("El peso debe ser mayor que cero.");
             }
 
             this.Nombre = nombre;
             this.Edad = edad;
             this.Numero = numero;
             this.Posicion = posicion;
+            this.Nacionalidad = nacionalidad;
+            this.Estatura = estatura;
+            this.Peso = peso;
         }
 
         //METODOS, COMPORTAMIENTOS O FUNCIONES

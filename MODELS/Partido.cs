@@ -6,17 +6,46 @@ namespace torneoPOO_GMERA.MODELS
 {
     public class Partido
     {
-        public Equipo Local { get; set; }
-        public Equipo Visitante { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Lugar { get; set; }
+        private Equipo local;
+        private Equipo visitante;
+        private DateTime fecha; 
+        private string lugar;
+        private string arbitro;
+        private int capacidadEstadio;
+        private string campeonato;
 
-        public Partido(Equipo local, Equipo visitante, DateTime fecha, string lugar)
+        public Equipo Local { get => local; set => local = value; }
+        public Equipo Visitante { get => visitante; set => visitante = value; }
+        public DateTime Fecha { get => fecha; set => fecha = value; }
+        public string Lugar { get => lugar; set => lugar = value; }
+        public string Arbitro { get => arbitro; set => arbitro = value; }
+        public int CapacidadEstadio { get => capacidadEstadio; set => capacidadEstadio = value; }
+        public string Campeonato { get => campeonato; set => campeonato = value; }
+
+        public Partido(Equipo local, Equipo visitante, DateTime fecha, string lugar, string arbitro, int capacidadEstadio, string campeonato)
         {
+            if (string.IsNullOrWhiteSpace(arbitro))
+            {
+                throw new Exception("El árbitro es obligatorio.");
+            }
+
+            if (capacidadEstadio <= 0)
+            {
+                throw new Exception("La capacidad del estadio debe ser mayor que cero.");
+            }
+
+            if (string.IsNullOrWhiteSpace(campeonato))
+            {
+                throw new Exception("El campeonato es obligatorio.");
+            }
+
             this.Local = local;
             this.Visitante = visitante;
             this.Fecha = fecha;
             this.Lugar = lugar;
+            this.Arbitro = arbitro;
+            this.CapacidadEstadio = capacidadEstadio;
+            this.Campeonato = campeonato;
         }
 
         public void MostrarResumen()

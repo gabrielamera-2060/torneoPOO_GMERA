@@ -7,3 +7,6 @@ METODOS, COMPORTAMIENTOS O FUNCIONES
 
 08-07-2026
 Se realizaron constructores en las clases jugador partido y equipo
+
+15-07-2026
+Se añadieron 3 atributos con sus propiedades y validaciones
