@@ -16,6 +16,7 @@ namespace torneoPOO_GMERA.MODELS
         private double estatura;
         private double peso;
         private string fichado;
+        private Equipo equipo_actual;
 
         public string Nombre{ get => nombre; set => nombre = value; }
         public int Edad
@@ -96,6 +97,7 @@ namespace torneoPOO_GMERA.MODELS
             this.Estatura = estatura;
             this.Peso = peso;
             this.fichado = "N";
+            this.equipo_actual = null;
         }
 
         //METODOS, COMPORTAMIENTOS O FUNCIONES
@@ -165,6 +167,7 @@ namespace torneoPOO_GMERA.MODELS
         public void Fichar(Equipo objEquipoFichado)
         {
             this.fichado = "S";
+            this.equipo_actual = objEquipoFichado;
         }
 
     }

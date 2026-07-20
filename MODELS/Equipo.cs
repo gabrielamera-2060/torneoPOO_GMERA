@@ -56,27 +56,20 @@ namespace torneoPOO_GMERA.MODELS
             }
         }
 
-        public Equipo(string nombre, string ciudad, string entrenador, int anioFundacion, string estadio)
+        public Equipo(string? nombre, string? ciudad, string? entrenador, int anioFundacion, string estadio)
         {
-            this.Nombre = nombre;
-            this.Ciudad = ciudad;
-            this.Jugadores = new List<Jugador>();
-
-            this.Entrenador = entrenador;
-            this.AnioFundacion = anioFundacion;
-            this.Estadio = estadio;
+            this.nombre = nombre;
+            this.ciudad = ciudad;
+            this.entrenador = entrenador;
+            this.anioFundacion = anioFundacion;
+            this.jugadores = new List<Jugador>();
+            this.estadio = estadio;
         }
 
         public void AgregarJugador(Jugador objJugador)
         {
-            if (objJugador == null)
-            {
-                Console.WriteLine("No se puede agregar un jugador nulo.");
-                return;
-            }
-
             this.Jugadores.Add(objJugador);
-            Console.WriteLine($"Jugador {objJugador.Nombre} agregado correctamente");
+            Console.WriteLine($"Jugador{objJugador.Nombre} agregador correctamemte");
         }
 
         public void ListarPlantilla()

@@ -6,6 +6,7 @@ namespace torneoPOO_GMERA.MODELS
 {
     public class Partido
     {
+        private int id;
         private Equipo local;
         private Equipo visitante;
         private DateTime fecha; 
@@ -70,6 +71,12 @@ namespace torneoPOO_GMERA.MODELS
         {
             Console.WriteLine($"Hay un partido programado entre el local {this.Local.Nombre} y el visitante {this.Visitante.Nombre} en el lugar {this.Lugar}");
         }
-
+        public void Imprimir()
+        {
+            Console.WriteLine($"Lugar: {this.Lugar}");
+            Console.WriteLine($"Árbitro: {this.Arbitro}");
+            Console.WriteLine($"Capacidad del Estadio: {this.CapacidadEstadio}");
+            Console.WriteLine($"Campeonato: {this.Campeonato}");
+        }
     }
 }
