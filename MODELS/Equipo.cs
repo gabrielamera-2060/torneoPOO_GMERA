@@ -84,8 +84,17 @@ namespace torneoPOO_GMERA.MODELS
             Console.WriteLine($"La lista de jugadores del equipo de {this.Nombre} del pais de {this.Ciudad} es:");
             foreach (Jugador objJugador in Jugadores)
             {
-                objJugador.Presentar();
+                objJugador.Imprimir();
+                Console.WriteLine("_______________________________________");
             }
+        }
+        public void Imprimir()
+        {
+            Console.WriteLine($"Nombre del equipo: {this.Nombre}");
+            Console.WriteLine($"Ciudad del equipo: {this.Ciudad}");
+            Console.WriteLine($"Entrenador del equipo: {this.entrenador}");
+            ListarPlantilla();
         }
     }
 }
+   
