@@ -18,27 +18,45 @@ namespace torneoPOO_GMERA.MODELS
         public Equipo Visitante { get => visitante; set => visitante = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public string Lugar { get => lugar; set => lugar = value; }
-        public string Arbitro { get => arbitro; set => arbitro = value; }
-        public int CapacidadEstadio { get => capacidadEstadio; set => capacidadEstadio = value; }
-        public string Campeonato { get => campeonato; set => campeonato = value; }
+        public string Arbitro 
+        { 
+            get => arbitro;
+            set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("El árbitro es obligatorio.");
+                }
+                arbitro = value;
+            }
+        }
+        public int CapacidadEstadio 
+        { 
+            get => capacidadEstadio; 
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("La capacidad del estadio debe ser mayor que cero.");
+                }
+                capacidadEstadio = value;
+            }
+        }
+        public string Campeonato 
+        { 
+            get => campeonato; 
+            set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("El campeonato es obligatorio.");
+                }
+                campeonato = value;
+            }
+        }
 
         public Partido(Equipo local, Equipo visitante, DateTime fecha, string lugar, string arbitro, int capacidadEstadio, string campeonato)
         {
-            if (string.IsNullOrWhiteSpace(arbitro))
-            {
-                throw new Exception("El árbitro es obligatorio.");
-            }
-
-            if (capacidadEstadio <= 0)
-            {
-                throw new Exception("La capacidad del estadio debe ser mayor que cero.");
-            }
-
-            if (string.IsNullOrWhiteSpace(campeonato))
-            {
-                throw new Exception("El campeonato es obligatorio.");
-            }
-
             this.Local = local;
             this.Visitante = visitante;
             this.Fecha = fecha;

@@ -16,43 +16,77 @@ namespace torneoPOO_GMERA.MODELS
         private double estatura;
         private double peso;
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public int Edad { get => edad; set => edad = value; }
-        public int Numero { get => numero; set => numero = value; }
+        public string Nombre{ get => nombre; set => nombre = value; }
+        public int Edad
+        {
+            get => edad;
+            set
+            {
+                if (!EsMayorEdad(value))
+                {
+                    throw new Exception("El jugador debe ser mayor de edad");
+                }
+                edad = value;
+            }
+
+        }
+
+        public int Numero
+        {
+            get => numero;
+            set
+            {
+                if (!EsNumeroValido(value))
+                {
+                    throw new Exception(" El número de la camiseta no es válido");
+                }
+                numero = value;
+            }
+        }
+       
         public string Posicion { get => posicion; set => posicion = value; }
-        public string Nacionalidad { get => nacionalidad; set => nacionalidad = value; }
-        public double Estatura { get => estatura; set => estatura = value; }
-        public double Peso { get => peso; set => peso = value; }
+        public string Nacionalidad 
+        {
+            get => nacionalidad;
+            set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("La nacionalidad es obligatoria.");
+                }
+                nacionalidad = value;
+            }
+        }
+        public double Estatura
+        {
+            get => estatura;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("La estatura debe ser mayor que cero.");
+                }
+                estatura = value;
+            }
+        }
+
+        public double Peso 
+        { 
+            get => peso; 
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("El peso debe ser mayor que cero.");
+                }
+                peso = value;
+            } 
+        }
 
 
         //Constructor
         public Jugador(string nombre, int edad, int numero, string posicion, string nacionalidad, double estatura, double peso)
-        {
-            if (edad < 18)
-            {
-                throw new Exception("El jugador debe ser mayor de edad.");
-            }
-
-            if (numero <= 0 || numero >= 100)
-            {
-                throw new Exception("El número de camiseta no es valido.");
-            }
-
-            if (string.IsNullOrWhiteSpace(nacionalidad))
-            {
-                throw new Exception("La nacionalidad es obligatoria.");
-            }
-
-            if (estatura <= 0)
-            {
-                throw new Exception("La estatura debe ser mayor que cero.");
-            }
-
-            if (peso <= 0)
-            {
-                throw new Exception("El peso debe ser mayor que cero.");
-            }
-
+        { 
             this.Nombre = nombre;
             this.Edad = edad;
             this.Numero = numero;
@@ -83,6 +117,29 @@ namespace torneoPOO_GMERA.MODELS
         public Boolean EsNumeroValido()
         {
             if (this.Numero > 0 && this.Numero < 100)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public Boolean EsMayorEdad(int edad)
+        {
+            if (edad >= 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean EsNumeroValido(int numero)
+        {
+            if (numero > 0 && numero < 100)
             {
                 return true;
             }
