@@ -3,6 +3,8 @@ using torneoPOO_GMERA.MODELS;
 
 
 int opcion = 0;
+Jugador objJugador1 = new Jugador("Jude Bellingham", 23, 10, "centrocampista", "Ingles", 1.86, 75);
+Database.Jugadores.Add(objJugador1);
 do
 {
     Console.Clear();
@@ -13,6 +15,9 @@ do
     Console.WriteLine("3.- Buscar Jugador");
     Console.WriteLine("4.- Actualizar Jugador");
     Console.WriteLine("5.- Eliminar Jugador");
+    Console.WriteLine("6.- Crear Equipos");
+    Console.WriteLine("7.- Listar Equipos");
+    Console.WriteLine("8.- Buscar Equipo");
     Console.WriteLine("");
     Console.Write("Ingrese una opción: ");
     opcion = Convert.ToInt32(Console.ReadLine());
@@ -35,25 +40,116 @@ do
         case 5:
             EliminarJugador();
             break;
+        case 6:
+            crearEquipo();
+            break;
+        case 7:
+            listarEquipos();
+            break;
+        case 8:
+            buscarEquipo();
+            break;
         default:
             Console.WriteLine("Opción inválida. Por favor, intente nuevamente.");
             break;
     }
-} while (opcion != 4);
+} while (opcion != 8);
+
+void buscarEquipo()
+{
+    Console.Clear();
+}
+
+void listarEquipos()
+{
+    Console.Clear();
+}
+
+void crearEquipo()
+{
+    Console.Clear();
+}
 
 void EliminarJugador()
 {
-    throw new NotImplementedException();
+    Console.Clear();
+    Console.WriteLine("**********Eliminar Jugador**********");
+    Console.WriteLine("Ingrese el numero del jugador a buscar: ");
+    int numeroIngresado = Convert.ToInt32(Console.ReadLine());
+    Jugador objJugador = Database.Jugadores.Find(j => j.Numero == numeroIngresado);
+    if (objJugador != null)
+    {
+        {
+            Console.WriteLine("-----------------------------------");
+            objJugador.Imprimir();
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine($"¿Está seguro de que desea eliminar a este jugador {objJugador.Nombre} ? S/N:");
+            if (Console.ReadLine().ToUpper() == "S")
+            {
+                Database.Jugadores.Remove(objJugador);
+                Console.WriteLine("Jugador eliminado exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine("Operación cancelada.");
+            }
+        }
+ 
+
+}
+
 }
 
 void ActualizarJugador()
 {
     Console.Clear();
+    Console.WriteLine("**********Eliminar Jugador**********");
+    Console.WriteLine("Ingrese el numero del jugador a buscar: ");
+    int numeroIngresado = Convert.ToInt32(Console.ReadLine());
+    Jugador objJugador = Database.Jugadores.Find(j => j.Numero == numeroIngresado);
+    if (objJugador != null)
+    {
+        Console.WriteLine("-----------------------------------");
+        objJugador.Imprimir();
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine($"¿Está seguro de que desea eliminar al jugador {objJugador.Nombre} ? S/N:");
+        if (Console.ReadLine().ToUpper() == "S")
+        {
+            Database.Jugadores.Remove(objJugador);
+            Console.WriteLine("Jugador eliminado exitosamente.");
+        }
+        else
+        {
+            Console.WriteLine("Operación cancelada.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Jugador no encontrado.");
+    }
+    Console.ReadLine();
 }
+    
 
 void BuscarJugador()
 {
     Console.Clear();
+    Console.WriteLine("**********Buscar Jugador**********");
+    Console.WriteLine("Ingrese el numero del jugador a buscar: ");
+    int numeroIngresado = Convert.ToInt32(Console.ReadLine());
+    Jugador objJugador = Database.Jugadores.Find(j => j.Numero == numeroIngresado);
+    if (objJugador != null)
+    {
+        Console.WriteLine("Jugador encontrado:");
+        Console.WriteLine("-----------------------------------");
+        objJugador.Imprimir();
+    }
+    else
+    {
+        Console.WriteLine("Jugador no encontrado.");
+    }
+    Console.ReadLine();
+
 }
 
 void listarJugadores()
@@ -62,7 +158,8 @@ void listarJugadores()
     Console.WriteLine("**********Jugadores Creados**********");
     foreach (Jugador jugador in Database.Jugadores)
     {
-        jugador.Presentar();
+        jugador.Imprimir();
+        Console.WriteLine("--------------------------------------");
     }
     Console.ReadLine();
 }

@@ -14,3 +14,6 @@ Se añadieron 3 atributos con sus propiedades y validaciones
 20-07-2026
 creacion de menu
 almacenamiento de datos en memoria (lista esaticas)
+
+////////////
+CRUD de jugador

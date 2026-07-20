@@ -15,6 +15,7 @@ namespace torneoPOO_GMERA.MODELS
         private string nacionalidad;
         private double estatura;
         private double peso;
+        private string fichado;
 
         public string Nombre{ get => nombre; set => nombre = value; }
         public int Edad
@@ -46,7 +47,7 @@ namespace torneoPOO_GMERA.MODELS
        
         public string Posicion { get => posicion; set => posicion = value; }
         public string Nacionalidad 
-        {
+        { 
             get => nacionalidad;
             set 
             {
@@ -82,7 +83,7 @@ namespace torneoPOO_GMERA.MODELS
                 peso = value;
             } 
         }
-
+        public string Fichado { get => fichado; }
 
         //Constructor
         public Jugador(string nombre, int edad, int numero, string posicion, string nacionalidad, double estatura, double peso)
@@ -94,6 +95,7 @@ namespace torneoPOO_GMERA.MODELS
             this.Nacionalidad = nacionalidad;
             this.Estatura = estatura;
             this.Peso = peso;
+            this.fichado = "N";
         }
 
         //METODOS, COMPORTAMIENTOS O FUNCIONES
@@ -148,5 +150,22 @@ namespace torneoPOO_GMERA.MODELS
                 return false;
             }
         }
+        public void Imprimir()
+        {
+            Console.WriteLine($"nacionalidad: {this.nacionalidad}");
+            Console.WriteLine($"Nombre: {this.Nombre}");
+            Console.WriteLine($"Edad: {this.Edad}");
+            Console.WriteLine($"estatura: {this.estatura}");
+            Console.WriteLine($"Número: {this.Numero}");
+            Console.WriteLine($"Posición: {this.Posicion}");
+            Console.WriteLine($"peso: {this.peso}");
+            Console.WriteLine($"Fichado: {this.Fichado}");
+        }
+
+        public void Fichar(Equipo objEquipoFichado)
+        {
+            this.fichado = "S";
+        }
+
     }
 }
