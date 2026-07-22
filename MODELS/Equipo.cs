@@ -15,6 +15,8 @@ namespace torneoPOO_GMERA.MODELS
         private string entrenador;
         private int anioFundacion;
         private string estadio;
+        private int id;
+
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
@@ -56,6 +58,8 @@ namespace torneoPOO_GMERA.MODELS
             }
         }
 
+        public int Id { get => id; set => id = value; }
+
         public Equipo(string? nombre, string? ciudad, string? entrenador, int anioFundacion, string estadio)
         {
             this.nombre = nombre;
@@ -84,6 +88,7 @@ namespace torneoPOO_GMERA.MODELS
         public void Imprimir()
         {
             Console.WriteLine($"Nombre del equipo: {this.Nombre}");
+            Console.WriteLine($"id: {this.id}");
             Console.WriteLine($"Ciudad del equipo: {this.Ciudad}");
             Console.WriteLine($"Entrenador del equipo: {this.entrenador}");
             ListarPlantilla();

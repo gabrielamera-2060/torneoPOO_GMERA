@@ -19,3 +19,6 @@ almacenamiento de datos en memoria (lista esaticas)
 CRUD de jugador
 se creo crud de equipo y una parte de jugador 
 crud de partido y equipo y actualizacion en partido
+
+21-07-2026
+Añadir campo Id y funcionalidad de serialización JSON

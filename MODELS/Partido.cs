@@ -56,6 +56,8 @@ namespace torneoPOO_GMERA.MODELS
             }
         }
 
+        public int Id { get => id; set => id = value; }
+
         public Partido(Equipo local, Equipo visitante, DateTime fecha, string lugar, string arbitro, int capacidadEstadio, string campeonato)
         {
             this.Local = local;
@@ -74,6 +76,7 @@ namespace torneoPOO_GMERA.MODELS
         public void Imprimir()
         {
             Console.WriteLine($"Lugar: {this.Lugar}");
+            Console.WriteLine($"id: {this.id}");
             Console.WriteLine($"Árbitro: {this.Arbitro}");
             Console.WriteLine($"Capacidad del Estadio: {this.CapacidadEstadio}");
             Console.WriteLine($"Campeonato: {this.Campeonato}");

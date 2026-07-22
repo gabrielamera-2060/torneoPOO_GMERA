@@ -17,6 +17,7 @@ namespace torneoPOO_GMERA.MODELS
         private double peso;
         private string fichado;
         private Equipo equipo_actual;
+        private int id; 
 
         public string Nombre{ get => nombre; set => nombre = value; }
         public int Edad
@@ -85,6 +86,7 @@ namespace torneoPOO_GMERA.MODELS
             } 
         }
         public string Fichado { get => fichado; }
+        public int Id { get => id; set => id = value;}
 
         //Constructor
         public Jugador(string nombre, int edad, int numero, string posicion, string nacionalidad, double estatura, double peso)
@@ -162,6 +164,8 @@ namespace torneoPOO_GMERA.MODELS
             Console.WriteLine($"Posición: {this.Posicion}");
             Console.WriteLine($"peso: {this.peso}");
             Console.WriteLine($"Fichado: {this.Fichado}");
+            Console.WriteLine($"id: {this.id}");
+
         }
 
         public void Fichar(Equipo objEquipoFichado)
